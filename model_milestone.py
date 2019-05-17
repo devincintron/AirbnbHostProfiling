@@ -52,16 +52,7 @@ def encodeSentences(reviews):
 	encoder = skipthoughts.Encoder(model)
 	print('Encoding sentences...')
 	enc_sentences = encoder.encode(reviews, verbose=False)
-	return enc_sentences # unsure about this, but keeping for now
-
-	for i in range(len(reviews)):
-		begin = cum_sum_sentences[i]
-		end = cum_sum_sentences[i+1]
-		enc_reviews[i] = enc_sentences[begin:end]
-
-	print('Encoding finished.')
-	print(len(enc_reviews))
-	#return enc_reviews
+	return enc_sentences 
 
 def kmeans(enc_sentences, review):
 	print('Starting clustering...')
@@ -80,32 +71,11 @@ def kmeans(enc_sentences, review):
 	for idx in ordering:
 		summary_volume.append(review[idx])
 	return summary_volume
-	#' '.join([emails[i][closest[idx]] for idx in ordering])
-	# for i in range(n_reviews):
-	# 	enc_review = enc_reviews[i]
-	# 	n_clusters = int(np.ceil(len(enc_review)**0.5))
-	# 	kmeans = KMeans(n_clusters=n_clusters, random_state=0)
-	# 	kmeans = kmeans.fit(enc_review)
-	# 	avg = []
-	# 	closest = []
-	# 	for j in range(n_clusters):
-	# 		idx = np.where(kmeans.labels_ == j)[0]
-	# 		avg.append(np.mean(idx))
-	# 	closest, _ = pairwise_distances_argmin_min(kmeans.cluster_centers_,\
- #                                                   enc_review)
- #        ordering = sorted(range(n_clusters), key=lambda k: avg[k])
- #        summary[i] = ' '.join([review[i][closest[idx]] for idx in ordering])
-	#return summary
-
 
 def main():
 	#print('Gathering reviews...')
 	#reviews = gatherReviews('listing_sample.txt')
 	processed_review = gatherReviewAsList('expanded_sample.txt')
-	for sentence in processed_review:
-		print('VVVVVVVVVVVVVVV')
-		print(sentence)
-		print('^^^^^^^^^^^^^^^')
 	enc_sentences = encodeSentences(processed_review)
 	print('This is the processed_review: (size = ' + str(len(processed_review)))
 	for i in range(len(processed_review)):
