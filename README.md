@@ -7,3 +7,7 @@ Creative Commons CC0 1.0 Universal (CC0 1.0) "Public Domain Dedication" license.
 
 An exploration of using multi-document text summarization techniques to create synthesized
 summaries of airbnb hosts using aggregation of reviews.
+
+# Requirements:
+Python 2.7
+SkipThoughts -- https://github.com/ryankiros/skip-thoughts
