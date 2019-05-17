@@ -10,4 +10,5 @@ summaries of airbnb hosts using aggregation of reviews.
 
 # Requirements:
 Python 2.7
+
 SkipThoughts -- https://github.com/ryankiros/skip-thoughts
